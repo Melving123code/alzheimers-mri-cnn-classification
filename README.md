@@ -8,6 +8,16 @@ The project includes multiple CNN-based approaches, data preprocessing technique
 
 ---
 
+## Project Highlights
+
+- Built multiple CNN models for multi-class MRI classification
+- Applied data augmentation and normalization techniques
+- Implemented transfer learning using MobileNetV2
+- Evaluated models using confusion matrix and classification metrics
+- Identified model bias and limitations through error analysis
+
+---
+
 ## Problem Statement
 
 Alzheimer’s disease is a progressive neurological disorder that affects memory and cognitive function. Early and accurate detection is critical for treatment and management.
@@ -38,6 +48,7 @@ Each class contains MRI scans that were preprocessed and converted into JPEG ima
 ---
 
 ## Dataset Structure
+train/
 ├── Final AD JPEG/
 ├── Final CN JPEG/
 ├── Final EMCI JPEG/
@@ -116,12 +127,32 @@ The models were evaluated using:
 ## Results
 
 | Model                     | Accuracy |
-|--------------------------|--------|
-| Baseline CNN             | ~44%   |
-| CNN + Augmentation       | ~45%   |
-| Transfer Learning Model  | ~45%   |
+|--------------------------|----------|
+| Baseline CNN             | ~44%     |
+| CNN + Augmentation       | ~45%     |
+| Transfer Learning Model  | ~45%     |
+
+The overall accuracy across models is approximately 45%, indicating that the classification task is challenging due to subtle differences between Alzheimer’s stages and potential class imbalance in the dataset.
+
+---
+
+## Confusion Matrix (Transfer Learning)
+
+![Transfer Learning Confusion Matrix](images/transfer_confusion_matrix.png)
+
+### Analysis
+
+- The model performs best on the **Cognitively Normal (CN)** class.
+- Most other classes are incorrectly predicted as CN.
+- This indicates class imbalance and a strong model bias toward the CN class.
+- The model struggles to distinguish between stages of cognitive impairment.
+
+Although the overall accuracy is ~45%, the confusion matrix shows that the model does not generalize well across all classes.
+
+---
 
 ### Observations
+
 - Models showed limited performance due to dataset complexity
 - Some classes were harder to distinguish, leading to imbalance in predictions
 - Transfer learning slightly improved performance
@@ -137,3 +168,19 @@ The models were evaluated using:
 - Scikit-learn
 - Google Colab
 
+---
+
+## Future Improvements
+
+- Apply class weighting to handle class imbalance
+- Fine-tune the MobileNetV2 base layers
+- Use more advanced architectures (ResNet, EfficientNet)
+- Increase dataset size for better generalization
+- Perform hyperparameter tuning for improved performance
+
+---
+
+## Author
+
+Melvin Gates  
+Master’s Student – Computer Science (Data Science)  
